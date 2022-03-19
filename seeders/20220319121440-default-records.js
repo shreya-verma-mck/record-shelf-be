@@ -30,50 +30,56 @@ module.exports = {
     await queryInterface.bulkInsert('genres', [{
       id: 1,
       name: 'rock',
-      image_url: 'https://drive.google.com/file/d/1WhFUpQMJdrs4XKtaOuDtxw4owkvO8Enn/view?usp=sharing'
+      image_url: 'https://i.ibb.co/CbB9sfK/genre-rock.png'
     }, {
       id: 2,
       name: 'pop',
-      image_url: 'https://drive.google.com/file/d/185sjUXjE3j3_-8-Dp1opDJFJtpExafRM/view?usp=sharing'
+      image_url: 'https://i.ibb.co/wY1mY1k/genre-pop.png'
 
     }, {
       id: 3,
       name: 'country',
-      image_url: 'https://drive.google.com/file/d/1sfmfzHBE_aZyc2VW64_OQpVY5-PryLP2/view?usp=sharing'
+      image_url: 'https://i.ibb.co/879d2mW/genre-country.png'
     }, {
       id: 4,
       name: 'bollywood',
-      image_url: 'https://drive.google.com/file/d/1DgJrr6caaRXI80mhmSFb0krdceGBTzi6/view?usp=sharing'
+      image_url: 'https://i.ibb.co/R64VT9G/genre-bollywood.png'
     }], {});
 
     await queryInterface.bulkInsert('records', [{
+      id: 1,
       name: 'in the end',
-      image_url: 'https://drive.google.com/file/d/1FBTkvejJi0vGQPt85Kdj30UXkDoOJrKY/view?usp=sharing',
+      image_url: 'https://i.ibb.co/dtzyDNy/song-5.png',
       genre_id: 2,
       artist_id: 1
     }, {
+      id: 2,
       name: 'sickness',
-      image_url: 'https://drive.google.com/file/d/1xCTm7wr8skiyABJ_fJboqpUqQU_VCGtl/view?usp=sharing',
+      image_url: 'https://i.ibb.co/hXvCxCM/song-4.png',
       genre_id: 2,
       artist_id: 2
     }, {
+      id: 3,
       name: 'wow',
-      image_url: 'https://drive.google.com/file/d/1LlTRCJp-svam-Gab9LdY4bWQL8iaC-8Q/view?usp=sharing',
+      image_url: 'https://i.ibb.co/CMwcL0z/song-3.png',
       genre_id: 2,
       artist_id: 3
     }, {
+      id: 4,
       name: 'hollywood\'s bleeding',
-      image_url: 'https://drive.google.com/file/d/1Y6jNFK09d3Kb0F03e9pL9iHiomvOFpDy/view?usp=sharing',
+      image_url: 'https://i.ibb.co/PcfyMqq/song-2.png',
       genre_id: 2,
       artist_id: 3
     }, {
+      id: 5,
       name: 'rockstar',
-      image_url: 'https://drive.google.com/file/d/1nzH4ynlIk_k4usZJyeKygrWqOXUr2yXX/view?usp=sharing',
+      image_url: 'https://i.ibb.co/3Rj0drv/song-1.png',
       genre_id: 2,
       artist_id: 3
     }, {
+      id: 6,
       name: 'black heart',
-      image_url: 'https://drive.google.com/file/d/1nR5Q0rxJU9mhTh2YYTXiopImyJXY2dRu/view?usp=sharing',
+      image_url: 'https://i.ibb.co/x8fbGd8/song-6.png',
       genre_id: 2,
       artist_id: 4
     }], {});
