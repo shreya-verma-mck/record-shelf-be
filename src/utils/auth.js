@@ -11,18 +11,21 @@ const authScheme = (server) => ({
         server.logger.error(NO_AUTH_ERROR);
         return h.unauthenticated(Boom.unauthorized());
       }
-      const userNameInAuthorization = Buffer.from(authorization, 'base64').toString('ascii');
-      const user = await models.users.findOne({
-        where: {
-          name: userNameInAuthorization
-        },
-      });
-      if (user) {
-        return h.authenticated({
-          credentials: {
-            id: user.dataValues.id, name: user.dataValues.name
-          }
+      const authorizationSplitAtSpace = authorization.split(' ');
+      if (authorizationSplitAtSpace.length === 2) {
+        const userNameInAuthorization = Buffer.from(authorizationSplitAtSpace[1], 'base64').toString('ascii');
+        const user = await models.users.findOne({
+          where: {
+            name: userNameInAuthorization
+          },
         });
+        if (user) {
+          return h.authenticated({
+            credentials: {
+              id: user.dataValues.id, name: user.dataValues.name
+            }
+          });
+        }
       }
       server.logger.error(USER_UNAUTHORIZED_ERROR);
       return h.unauthenticated(Boom.unauthorized());

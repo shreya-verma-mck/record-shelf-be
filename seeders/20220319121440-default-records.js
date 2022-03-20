@@ -49,37 +49,37 @@ module.exports = {
     await queryInterface.bulkInsert('records', [{
       id: 1,
       name: 'in the end',
-      image_url: 'https://i.ibb.co/dtzyDNy/song-5.png',
+      album_art_url: 'https://i.ibb.co/dtzyDNy/song-5.png',
       genre_id: 2,
       artist_id: 1
     }, {
       id: 2,
       name: 'sickness',
-      image_url: 'https://i.ibb.co/hXvCxCM/song-4.png',
+      album_art_url: 'https://i.ibb.co/hXvCxCM/song-4.png',
       genre_id: 2,
       artist_id: 2
     }, {
       id: 3,
       name: 'wow',
-      image_url: 'https://i.ibb.co/CMwcL0z/song-3.png',
+      album_art_url: 'https://i.ibb.co/CMwcL0z/song-3.png',
       genre_id: 2,
       artist_id: 3
     }, {
       id: 4,
       name: 'hollywood\'s bleeding',
-      image_url: 'https://i.ibb.co/PcfyMqq/song-2.png',
+      album_art_url: 'https://i.ibb.co/PcfyMqq/song-2.png',
       genre_id: 2,
       artist_id: 3
     }, {
       id: 5,
       name: 'rockstar',
-      image_url: 'https://i.ibb.co/3Rj0drv/song-1.png',
+      album_art_url: 'https://i.ibb.co/3Rj0drv/song-1.png',
       genre_id: 2,
       artist_id: 3
     }, {
       id: 6,
       name: 'black heart',
-      image_url: 'https://i.ibb.co/x8fbGd8/song-6.png',
+      album_art_url: 'https://i.ibb.co/x8fbGd8/song-6.png',
       genre_id: 2,
       artist_id: 4
     }], {});

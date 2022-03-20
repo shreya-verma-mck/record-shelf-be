@@ -10,7 +10,7 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
-      image_url: {
+      album_art_url: {
         type: Sequelize.STRING
       },
       genre_id: {

@@ -4,7 +4,7 @@ const { RECORD_NOT_FOUND_ERROR } = require('../constants/errors');
 
 const getRecords = async (request, h) => {
   const records = await models.records.findAll({
-    attributes: ['id', 'name', 'imageUrl'],
+    attributes: ['id', 'name', 'albumArtUrl'],
     include: [
       {
         model: models.artists,
@@ -12,11 +12,11 @@ const getRecords = async (request, h) => {
       },
       {
         model: models.genres,
-        attributes: ['id', 'name', 'imageUrl'],
+        attributes: ['id', 'name'],
       }
     ]
   });
-  return h.response(records);
+  return h.response({ data: records });
 };
 
 const getLikesByRecordId = async (request, h) => {
@@ -42,8 +42,10 @@ const getLikesByRecordId = async (request, h) => {
   });
   const { id: userId } = request.auth.credentials;
   return h.response({
-    likesCount: likesByRecordId.length,
-    isLiked: likesByRecordId.some((like) => like.userId === userId)
+    data: {
+      count: likesByRecordId.length,
+      like: likesByRecordId.some((like) => like.userId === userId)
+    }
   });
 };
 
@@ -86,8 +88,10 @@ const updateLikesByRecordId = async (request, h) => {
     });
   }
   return h.response({
-    likesCount: likesByRecordId.filter((like) => like.isLiked).length + likeCountChange,
-    isLiked: request.payload.isLiked,
+    data: {
+      count: likesByRecordId.filter((like) => like.isLiked).length + likeCountChange,
+      like: request.payload.like,
+    }
   });
 };
 

@@ -21,8 +21,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   Record.init({
     name: DataTypes.STRING,
-    imageUrl: {
-      field: 'image_url',
+    albumArtUrl: {
+      field: 'album_art_url',
       type: DataTypes.STRING,
     },
     artistId: {
