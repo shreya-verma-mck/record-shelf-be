@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     recordId: {
       field: 'record_id',
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
     },
     createdAt: {
       field: 'created_at',

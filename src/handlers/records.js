@@ -4,7 +4,7 @@ const { RECORD_NOT_FOUND_ERROR } = require('../constants/errors');
 
 const getRecords = async (request, h) => {
   const records = await models.records.findAll({
-    attributes: ['id', 'name', 'albumArtUrl'],
+    attributes: ['id', 'name', 'imageUrl'],
     include: [
       {
         model: models.artists,
@@ -71,18 +71,18 @@ const updateLikesByRecordId = async (request, h) => {
   const { id: userId } = request.auth.credentials;
   const likeByRecordIdAndUserId = likesByRecordId.find((like) => like.userId === userId);
 
-  let likeCountChange = request.payload.isLiked ? 1 : -1;
+  let likeCountChange = request.payload.like ? 1 : -1;
   if (likeByRecordIdAndUserId) {
-    if (likeByRecordIdAndUserId.isLiked === request.payload.isLiked) {
+    if (likeByRecordIdAndUserId.isLiked === request.payload.like) {
       likeCountChange = 0;
     } else {
       await models.likes.update({
-        isLiked: request.payload.isLiked
+        isLiked: request.payload.like
       }, { where: { recordId, userId } });
     }
   } else {
     await models.likes.create({
-      isLiked: request.payload.isLiked,
+      isLiked: request.payload.like,
       recordId,
       userId
     });

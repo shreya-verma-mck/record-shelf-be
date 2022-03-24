@@ -20,18 +20,23 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Record.init({
+    id: {
+      allowNull: false,
+      primaryKey: true,
+      type: DataTypes.STRING
+    },
     name: DataTypes.STRING,
-    albumArtUrl: {
-      field: 'album_art_url',
+    imageUrl: {
+      field: 'image_url',
       type: DataTypes.STRING,
     },
     artistId: {
       field: 'artist_id',
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
     },
     genreId: {
       field: 'genre_id',
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
     },
     createdAt: {
       field: 'created_at',

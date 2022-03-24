@@ -3,18 +3,17 @@ module.exports = {
     await queryInterface.createTable('records', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       name: {
         type: Sequelize.STRING
       },
-      album_art_url: {
+      image_url: {
         type: Sequelize.STRING
       },
       genre_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         onDelete: 'CASCADE',
         references: {
           model: 'genres',
@@ -23,7 +22,7 @@ module.exports = {
         }
       },
       artist_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         onDelete: 'CASCADE',
         references: {
           model: 'artists',
