@@ -10,6 +10,9 @@ const getRecordsRoute = {
     auth: {
       strategy: USER_AUTH_SCHEME
     },
+    cors: {
+      origin: ['http://localhost:3000']
+    }
   }
 };
 
@@ -24,6 +27,9 @@ const getLikesByRecordIdRoute = {
     validate: {
       params: recordIdParam,
     },
+    cors: {
+      origin: ['http://localhost:3000']
+    }
   }
 };
 
@@ -39,6 +45,9 @@ const updateLikesByRecordIdRoute = {
       params: recordIdParam,
       payload: updateLikesPayload
     },
+    cors: {
+      origin: ['http://localhost:3000']
+    }
   }
 };
 
