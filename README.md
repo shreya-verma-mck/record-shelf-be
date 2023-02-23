@@ -15,4 +15,4 @@ DB_HOST=<hostname to connect to for database>
 - Run the command `npm run start` to run migrations, seed the database and start the server in development mode. This starts `nodemon`, which restarts the server for any changes in the source files.
 - For auth token to send in API `Authorization` header:
   - Select a `name` from the `users` table in database
-  - Encode the `name` to base64 from command line. Eg: `echo -n '<Name>' | base64`
+  - Encode the `name` to base64 from command line. Eg: `echo -n 'Aishwarya N' | base64`
