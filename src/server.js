@@ -28,7 +28,17 @@ const init = async () => {
   });
   await server.initialize();
   await attachPlugins(server);
-  server.route(Routes);
+  server.route([{
+    method: 'OPTIONS',
+    path: '/{any*}',
+    handler: async (request, reply) => {
+      const response = reply.response({});
+      response.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+      return response;
+    }
+  },
+  ...Routes
+  ]);
   return server;
 };
 
