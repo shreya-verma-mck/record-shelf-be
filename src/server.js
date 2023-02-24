@@ -33,7 +33,8 @@ const init = async () => {
     path: '/{any*}',
     handler: async (request, reply) => {
       const response = reply.response({});
-      response.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+      response.header('Access-Control-Allow-Origin', '*');
+      response.header('Access-Control-Allow-Headers', '*');
       return response;
     }
   },
