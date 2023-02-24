@@ -28,7 +28,18 @@ const init = async () => {
   });
   await server.initialize();
   await attachPlugins(server);
-  server.route(Routes);
+  server.route([{
+    method: 'OPTIONS',
+    path: '/{any*}',
+    handler: async (request, reply) => {
+      const response = reply.response({});
+      response.header('Access-Control-Allow-Origin', '*');
+      response.header('Access-Control-Allow-Headers', '*');
+      return response;
+    }
+  },
+  ...Routes
+  ]);
   return server;
 };
 
